@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Контакты</title>
+</head>
+<body>
+	<div class="menu">
+		<li><a href="{% url 'projects' %}">Проекты</a></li>
+		<li><a href="{% url 'about' %}">О нас</a></li>
+		<li><a href="{% url 'message' %}">Контакты</a></li>
+		<hr>
+	</div>
+	<div class="images">
+		{% load staticfiles %}
+		<img src="{% static picture %}" width="350" height="200" alt="My images"/>
+		<hr>
+	</div>
+	<div class="description">
+		<p>{{ data }}<p>
+		<hr>
+	</div>
+	<div class="message">
+	{% if errors %}
+		<ul>
+			{% for error in errors %}
+				<li style="color: red;">{{ error }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<form action="/send" method="POST">
+		<label>Please contact us!:</label><hr/>
+		<input size="44" name="guest_mail" type="text" value="Please type e-mail"><br/>
+		<p/>
+		<input size="44" name="message_title" type="text" value="Please type title"><br/>
+		<p/> 
+		<input size="44" name="your_name" type="text" value="Please type your full name"><br/>
+		<p/>
+		<textarea rows="10" cols="45" name="message_text">Please type a message</textarea><br/>
+		<p/>
+		<input type="submit" value="Send message">
+		{% csrf_token %}
+	</form>
+	</div>
+</body>
+</html>
