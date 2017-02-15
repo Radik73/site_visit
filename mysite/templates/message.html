@@ -28,7 +28,8 @@
 		</ul>
 	{% endif %}
 	<form action="/send" method="POST">
-		<label>Please contact us!:</label><hr/>
+		<label>Please contact us!:</label><br/>
+		<p/>
 		<input size="44" name="guest_mail" type="text" value="Please type e-mail"><br/>
 		<p/>
 		<input size="44" name="message_title" type="text" value="Please type title"><br/>
@@ -39,6 +40,7 @@
 		<p/>
 		<input type="submit" value="Send message">
 		{% csrf_token %}
+		<hr>
 	</form>
 	</div>
 </body>

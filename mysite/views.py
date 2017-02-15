@@ -21,7 +21,8 @@ from PIL import Image
 def about_us(request):
 	text_content = pars.parse('description')
 	image_content = pars.parse('images')
-	return render_to_response('about.html', {'data': text_content.nodeValue, 'picture': image_content.nodeValue})
+	information_content = pars.parse('information')
+	return render_to_response('about.html', {'data': text_content.nodeValue, 'picture': image_content.nodeValue, 'info': information_content.nodeValue})
 
 def projects(request):
 	text_content = pars.parse('description')
