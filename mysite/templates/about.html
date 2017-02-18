@@ -5,31 +5,40 @@
 	<title>О нас</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="{% static 'site.css' %}">
+	<link rel="stylesheet" href="{% static 'about.css' %}">
 </head>
 <body>
-<div class = "header">
-	<h1>Customer name</h1>
-</div>
-<div class="menu">
-		<li><a href="{% url 'projects' %}">Проекты</a></li>
-		<li><a href="{% url 'about' %}">О нас</a></li>
-		<li><a href="{% url 'message' %}">Контакты</a></li>
-		<hr>
-</div>
-<div class="images">
-		<img src="{% static picture %}" width="350" height="200" alt="My images"/>
-		<hr>
-</div>
-<div class="description">
-	<p>{{ data }}<p>
-	<hr>
-</div>
-<div class="info">
-	<label>About us!:</label><br/>
-	<p/>
-	<p>{{ info }}<p>
-	<hr>
-</div>
+	<div id="contain">
+	
+		<div class="header">
+			<h1>Customer name</h1>
+			<hr>
+		</div>
+	
+		<div id="images">
+			<img src="{% static picture %}" width="350" height="200" alt="My images"/>
+			<hr>
+		</div>
+	
+		<div id="description">
+			<p>{{ data }}<p>
+			<hr>
+		</div>
+	
+		<div id="menu">
+			<li><a href="{% url 'projects' %}">Проекты</a></li>
+			<li><a href="{% url 'about' %}">О нас</a></li>
+			<li><a href="{% url 'message' %}">Контакты</a></li>
+			<hr>
+		</div>
+	
+		<div id="info">
+			<label>About us!:</label><br/>
+			<p/>
+			<p>{{ info }}<p>
+			<hr>
+		</div>
+		
+	</div>
 </body>
 </html>

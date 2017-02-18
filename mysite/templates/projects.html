@@ -1,31 +1,46 @@
 ﻿<!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
 	<title>Наши проекты</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'projects.css' %}">
 </head>
 <body>
-<div class="menu">
-		<li><a href="{% url 'projects' %}">Проекты</a></li>
-		<li><a href="{% url 'about' %}">О нас</a></li>
-		<li><a href="{% url 'message' %}">Контакты</a></li>
-		<hr>
-</div>
-<div class="images">
-		{% load staticfiles %}
-		<img src="{% static picture %}" width="350" height="200" alt="My images"/>
-		<hr>
-</div>
-<div class="description">
-	<p>{{ data }}<p>
-	<hr>
-</div>
-<div class="tape">
-{% for project in projects %}
-		<h3>{{ project.title }}</h3>
-		<p>{{ project.content }}<p/>
-		<p><img src="{{ project.image_descriotion.url }}" width="150" height="150" alt="Письма мастера дзен"></p>
-		<hr>
-{% endfor %}
-</div>
+	<div id="contain">
+	
+		<div id="header">
+			<h1>Customer name</h1>
+			<hr>
+		</div>
+		
+		<div id="images">
+			<img src="{% static picture %}" width="350" height="200" alt="My images"/>
+			<hr>
+		</div>
+		
+		<div id="description">
+			<p>{{ data }}<p>
+			<hr>
+		</div>
+		
+		<div id="menu">
+			<li><a href="{% url 'projects' %}">Проекты</a></li>
+			<li><a href="{% url 'about' %}">О нас</a></li>
+			<li><a href="{% url 'message' %}">Контакты</a></li>
+			<hr>
+		</div>
+		
+		<div id="tape">
+			{% for project in projects %}
+				<h3>{{ project.title }}</h3>
+				<p>{{ project.content }}<p/>
+				<p><img src="{{ project.image_descriotion.url }}" width="150" height="150" alt="Письма мастера дзен"></p>
+				<hr>
+			{% endfor %}
+		</div>
+		
+	</div>
 </body>
 </html>

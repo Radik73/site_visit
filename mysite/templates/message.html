@@ -1,33 +1,46 @@
 ﻿<!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
 	<title>Контакты</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'message.css' %}">
 </head>
 <body>
-	<div class="menu">
-		<li><a href="{% url 'projects' %}">Проекты</a></li>
-		<li><a href="{% url 'about' %}">О нас</a></li>
-		<li><a href="{% url 'message' %}">Контакты</a></li>
-		<hr>
-	</div>
-	<div class="images">
-		{% load staticfiles %}
-		<img src="{% static picture %}" width="350" height="200" alt="My images"/>
-		<hr>
-	</div>
-	<div class="description">
-		<p>{{ data }}<p>
-		<hr>
-	</div>
-	<div class="message">
-	{% if errors %}
-		<ul>
-			{% for error in errors %}
-				<li style="color: red;">{{ error }}</li>
-			{% endfor %}
-		</ul>
-	{% endif %}
-	<form action="/send" method="POST">
+	<div id="contain">
+	
+		<div id="header">
+			<h1>Customer name</h1>
+			<hr>
+		</div>
+		
+		<div id="images">
+			<img src="{% static picture %}" width="350" height="200" alt="My images"/>
+			<hr>
+		</div>
+		
+		<div id="description">
+			<p>{{ data }}<p>
+			<hr>
+		</div>
+		
+		<div id="menu">
+			<li><a href="{% url 'projects' %}">Проекты</a></li>
+			<li><a href="{% url 'about' %}">О нас</a></li>
+			<li><a href="{% url 'message' %}">Контакты</a></li>
+			<hr>
+		</div>
+		
+		<div id="message">
+		{% if errors %}
+			<ul>
+				{% for error in errors %}
+					<li style="color: red;">{{ error }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		<form action="/send" method="POST">
 		<label>Please contact us!:</label><br/>
 		<p/>
 		<input size="44" name="guest_mail" type="text" value="Please type e-mail"><br/>
@@ -36,12 +49,14 @@
 		<p/> 
 		<input size="44" name="your_name" type="text" value="Please type your full name"><br/>
 		<p/>
-		<textarea rows="10" cols="45" name="message_text">Please type a message</textarea><br/>
+		<textarea rows="10" cols="46" name="message_text">Please type a message</textarea><br/>
 		<p/>
 		<input type="submit" value="Send message">
 		{% csrf_token %}
 		<hr>
-	</form>
+		</form>
+		</div>
+		
 	</div>
 </body>
 </html>
