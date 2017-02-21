@@ -44,7 +44,7 @@ def send_message(request):
 		if not form['name']:
 			errors.append('Заполните имя')
 			return render(request, 'message.html', {'data': text_content.nodeValue, 'picture': image_content.nodeValue, 'errors': errors, 'form':form})
-		if '@' not in form['email']:
+		if '@' and '.' not in form['email']:
 			errors.append('Введите корректный e-mail')
 			return render(request, 'message.html', {'data': text_content.nodeValue, 'picture': image_content.nodeValue, 'errors': errors, 'form':form})
 		if not form['message']:

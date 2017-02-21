@@ -8,37 +8,57 @@
 	<link rel="stylesheet" href="{% static 'about.css' %}">
 </head>
 <body>
-	<div id="contain">
-	
+	<table cellspacing="0" class="maket">
+		<tr>
+		
+		<td class="leftcol">
+		<div class="images">
+		<div class="in_images">
+			<img src="{% static picture %}" width="400" height="250" alt="My images"/>
+		</div>
+		</div>
+		
+		<div class="menu">
+		<div class="in_menu">
+		<ul class="nav nav-pills nav-stacked">
+			<li><a style="color:#000000" href="{% url 'projects' %}">Проекты</a></li>
+			<li><a style="color:#000000" href="{% url 'about' %}">О нас</a></li>
+			<li><a style="color:#000000" href="{% url 'message' %}">Контакты</a></li>
+		</ul>
+		</div>
+		</div>
+		</td>
+		
+		<td class="spacer"></td>
+		
+		<td class="rightcol">
 		<div class="header">
 			<h1>Customer name</h1>
 			<hr>
 		</div>
-	
-		<div id="images">
-			<img src="{% static picture %}" width="350" height="200" alt="My images"/>
-			<hr>
-		</div>
-	
-		<div id="description">
+		
+		<div class="description">
 			<p>{{ data }}<p>
 			<hr>
 		</div>
-	
-		<div id="menu">
-			<li><a href="{% url 'projects' %}">Проекты</a></li>
-			<li><a href="{% url 'about' %}">О нас</a></li>
-			<li><a href="{% url 'message' %}">Контакты</a></li>
-			<hr>
-		</div>
-	
-		<div id="info">
-			<label>About us!:</label><br/>
+		
+		<div class="message">
+		<div class="in_message">
+		<table cellspacing="0" class="send">
+		<div class="in_message">
+		<caption>About us!:</caption>
+		<tr>
+		<td class="col">
 			<p/>
 			<p>{{ info }}<p>
-			<hr>
+		</td>
+		</tr>
+		</div>
+		</table>
+		</div>
 		</div>
 		
-	</div>
+		</tr>
+	</table>
 </body>
 </html>
