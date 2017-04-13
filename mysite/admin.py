@@ -1,6 +1,7 @@
 from django.contrib import admin
 from mysite.models import Project
 from mysite.models import Message
+from mysite.models import Post
 
 # Register your models here.
 #class ProjectAdmin(admin.ModelAdmin):
@@ -8,3 +9,4 @@ from mysite.models import Message
 
 admin.site.register(Message)
 admin.site.register(Project)
+admin.site.register(Post)

@@ -14,7 +14,9 @@ urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^projects', views.projects, name='projects'),
 	url(r'^about', views.about_us, name='about'),
-	url(r'^send', views.send_message, name='message')
+	url(r'^send', views.send_message, name='message'),
+	url(r'^post/', views.poster, name='post'),
+	url(r'^post_detail/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
 ]
 if settings.DEBUG:
 	if settings.MEDIA_ROOT:

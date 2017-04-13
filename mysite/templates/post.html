@@ -5,7 +5,7 @@
 	<title>Наши проекты</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="{% static 'projects.css' %}">
+	<link rel="stylesheet" href="{% static 'post.css' %}">
 </head>
 <body>
 	<table cellspacing="0" class="maket">
@@ -33,27 +33,18 @@
 		<td class="spacer"></td>
 		
 		<td class="rightcol">
-		<div class="header">
-			<h1>Customer name</h1>
-			<hr>
-		</div>
 		
-		<div class="description">
-			<p>{{ data }}<p>
-			<hr>
-		</div>
-		
-		<div id="tape">
-			{% for project in projects %}
+		<div class="tape">
+			{% for post in posts %}
 				<div class="message">
 				<div class="in_message">
 				<table cellspacing="0" class="send">
 				<div class="in_message">
-				<caption>{{ project.title }}</caption>
+				<caption><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></caption>
 				<tr>
 				<td class="col">
-				<div class="content_text"><p> {{ project.content }}<p/></div>
-				<p class="content_image"><img src="{{ project.image_descriotion.url }}" width="150" height="100" alt="Письма мастера дзен"></p>
+				<div class="content_text"><p>{{ post.text }}<p/></div>
+				<div class="published_data"><p>{{ post.published_date }}<p/></div>
 				</td>
 				</tr>
 				</div>

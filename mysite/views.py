@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from mysite.models import Project
 from mysite.models import Message
+from mysite.models import Post
 from .forms import *
 from xml.dom.minidom import *
 import pars
@@ -66,3 +67,13 @@ def send_message(request):
 				new_entry.save()
 		return HttpResponse('Спасибо за ваше сообщение!')
 	return render(request, 'message.html', {'data': text_content.nodeValue, 'picture': image_content.nodeValue, 'errors': errors, 'form':form})
+
+def poster(request):
+	text_content = pars.parse('description')
+	image_content = pars.parse('images')
+	post = Post.objects.all()
+	return render_to_response('post.html', {'posts': post, 'data': text_content.nodeValue, 'picture': image_content.nodeValue})
+
+def post_detail(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+	return render_to_response('post_detail.html', {'post': post})
